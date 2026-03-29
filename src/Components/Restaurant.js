@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import RestCard from "./RestCard";
+import Shimmer from "./Shimmer";
 
 export default function Restaurant() {
   const [RestData, setRestData] = useState([]);
@@ -18,6 +19,12 @@ export default function Restaurant() {
 
     fetchData();
   }, []);
+
+if(RestData.length==0){
+  return(
+    <Shimmer></Shimmer>
+  )
+}
 
   return (
     <div className="flex flex-wrap w-[80%] mx-auto mt-20 gap-5">
